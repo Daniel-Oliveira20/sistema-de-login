@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    require_once "usuarios.php";    
+    $u = new Usuario;
+?>
 <html leng='pt-br'>
 <head>
     <meta charset='utf-8'>
@@ -17,9 +20,35 @@
             <p>Não tem cadastro? <a href="cadastra.php">CADASTRE-SE</a></p>
         </form>
     </div>
-    <?php
-    insert()
+<?php
+if(insert($_POST['nome']))
+{
+    $email = addslashes($_POST['email']);
+    $senha = addslashes($_POST['senha']);
+    if(!empty($email) && !empty($senha))
+    {
+        $u->conectar("projeto_login","localhost","root","");
+        if($u->msgErro == "")
+        {
+            if($u->logar($email,$senha))
+            {
+                header(areaprivada.php);
+            }
+            else
+            {
+            echo "Email e/ou senha incorretos!";
+            }
+        }
+        else
+        {
+            echo "Erro:".$u->msgErro;
+        }
+    }
+    else
+    {
+        echo "Preencha todos os campos!";
+    }
 
-    ?>
+?>
 </body>
 </html>

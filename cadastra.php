@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-
 <?php
-    require_once "classes/usuarios.php";
+    require_once "usuarios.php";
     $u = new Usuario;
 ?>
 <html leng='pt-br'>
