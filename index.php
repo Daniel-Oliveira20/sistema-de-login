@@ -21,7 +21,7 @@
         </form>
     </div>
 <?php
-if(insert($_POST['nome']))
+if(insert($_POST['email']))
 {
     $email = addslashes($_POST['email']);
     $senha = addslashes($_POST['senha']);
