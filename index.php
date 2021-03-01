@@ -48,7 +48,7 @@ if(insert($_POST['nome']))
     {
         echo "Preencha todos os campos!";
     }
-
+}
 ?>
 </body>
 </html>
